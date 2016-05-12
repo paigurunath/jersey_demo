@@ -25,8 +25,17 @@ public class DBConnectionManager {
 
 		try {
 
+			//String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+			//String PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+			//String DB_NAME = System.getenv("OPENSHIFT_APP_NAME");
+		//	String FORNAME_URL = "com.mysql.jdbc.Driver";
+			//String URL = "jdbc:"+System.getenv("OPENSHIFT_MYSQL_DB_URL")+ DB_NAME;
+			String URL = "jdbc:mysql://" + System.getenv("OPENSHIFT_MYSQL_DB_HOST") +  ":"  + System.getenv("OPENSHIFT_MYSQL_DB_PORT")+ "/testcar1";
+			
+			
 	        Class.forName("com.mysql.jdbc.Driver");
-	        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+	        con = DriverManager.getConnection(URL , "adminE8jk35Q" , "SlfTnsCBesa_");
+	       // con = DriverManager.getConnection("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/","root","root");
 			
 			if (con != null) {
 				logger.info("Connection created Successfully !");
